@@ -391,7 +391,8 @@ const App = () => {
   const isCancelledRef = useRef(false);
   const presetsContainerRef = useRef(null);
 
-  const apiKey = "";
+  // --- API 키 주입 위치 ---
+  const apiKey = "AQ.Ab8RN6JPQRB12h0JSbhXKsSEeQc0Pdy93tKrUjBYLqSRR2GbiA";
 
   useEffect(() => {
     if (!auth) return;
@@ -845,33 +846,26 @@ const App = () => {
             <div className="flex-grow flex flex-col items-center justify-center rounded-2xl border border-slate-800/50 bg-black/80 overflow-hidden relative shadow-inner min-h-[400px]">
               {isLoading ? (
                 <div className="flex flex-col items-center p-8 h-full justify-center animate-in fade-in duration-500">
-                  {/* 시네마틱 스페슘 제네레이터 (공간 재구성 테마) */}
                   <div className="relative mb-16 w-64 h-64 flex items-center justify-center">
-                    {/* 외곽 에너지 필드 (입자 소용돌이) */}
                     <div className="absolute inset-0 border border-cyan-500/10 rounded-full animate-[spin_15s_linear_infinite]">
                        {[...Array(24)].map((_, i) => (
                          <div key={i} className="absolute w-1 h-1 bg-cyan-400/40 rounded-full" style={{ transform: `rotate(${i * 15}deg) translateY(-120px)` }}></div>
                        ))}
                     </div>
                     
-                    {/* 에너지 가속 고리 */}
                     <div className="absolute inset-6 border-[0.5px] border-cyan-400/20 rounded-full animate-[spin_4s_linear_infinite]"></div>
                     <div className="absolute inset-10 border-[0.5px] border-rose-500/20 rounded-full animate-[spin_7s_linear_infinite_reverse]"></div>
                     
-                    {/* 스페슘 코어 (심장 박동 펄스) */}
                     <div className="relative w-32 h-32 flex items-center justify-center">
-                      {/* 고차원 에너지 구체 */}
                       <div className="absolute inset-0 bg-cyan-500/5 rounded-full blur-[40px] animate-[nebula_pulse_3s_ease-in-out_infinite]"></div>
                       <div className="absolute inset-2 bg-rose-500/5 rounded-full blur-[30px] animate-[nebula_pulse_3s_ease-in-out_infinite_1.5s]"></div>
                       
-                      {/* 코어 HUD 요소 */}
                       <div className="absolute inset-0 flex items-center justify-center opacity-40">
                          <div className="w-full h-full border border-cyan-400/40 rounded-full animate-[spin_2s_linear_infinite]"></div>
                          <div className="absolute w-[110%] h-[1px] bg-cyan-400 animate-pulse"></div>
                          <div className="absolute w-[1px] h-[110%] bg-cyan-400 animate-pulse"></div>
                       </div>
 
-                      {/* 중심부 에너지 박동체 */}
                       <div className="w-24 h-24 bg-slate-950 rounded-full border-2 border-white/20 shadow-[0_0_50px_rgba(34,211,238,0.4),inset_0_0_30px_rgba(34,211,238,0.2)] flex items-center justify-center overflow-hidden">
                         <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,#fff_0%,#0ea5e9_60%)] opacity-0 animate-[core_beat_1.5s_ease-in-out_infinite]"></div>
                         <div className="z-10 relative">
@@ -880,7 +874,6 @@ const App = () => {
                       </div>
                     </div>
 
-                    {/* 에너지 방출 핀 (박동에 맞춰 발사되는 느낌) */}
                     <div className="absolute inset-0 pointer-events-none">
                        {[...Array(6)].map((_, i) => (
                          <div key={i} className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[1px] h-32 bg-gradient-to-t from-transparent via-cyan-400 to-transparent opacity-0 animate-[energy_burst_2s_ease-out_infinite]" style={{ transform: `translate(-50%, -50%) rotate(${i * 60}deg) translateY(-80px)`, animationDelay: `${i * 0.2}s` }}></div>
@@ -905,13 +898,9 @@ const App = () => {
                   >
                     {resultImage ? (
                       <div className="w-full h-full flex items-center justify-center relative overflow-hidden">
-                        {/* 시네마틱 스페슘 플래시 등장 연출 */}
                         <div className="absolute inset-0 z-20 pointer-events-none">
-                           {/* 매터리얼라이즈 화이트 플래시 */}
                            <div className="absolute inset-0 bg-white opacity-0 animate-[specium_flash_1.8s_ease-out_forwards]"></div>
-                           {/* 중심 에너지 파동 */}
                            <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-0 h-0 border-[2px] border-cyan-400 rounded-full opacity-0 animate-[spatial_ripple_1.5s_ease-out_forwards]"></div>
-                           {/* 좌우 스캔 바 */}
                            <div className="absolute inset-0 bg-gradient-to-r from-cyan-400/20 via-white/40 to-cyan-400/20 opacity-0 animate-[scan_sweep_v3_1s_ease-out_forwards]"></div>
                         </div>
                         
@@ -1073,7 +1062,6 @@ const App = () => {
           100% { top: 80%; left: 70%; width: 20px; height: 20px; opacity: 0; }
         }
 
-        /* V17 스페슘 코어 애니메이션 */
         @keyframes nebula_pulse {
           0%, 100% { transform: scale(1); opacity: 0.1; }
           50% { transform: scale(1.6); opacity: 0.3; }
@@ -1090,7 +1078,6 @@ const App = () => {
           100% { height: 0; opacity: 0; transform: translate(-50%, -50%) rotate(var(--tw-rotate)) translateY(-180px); }
         }
 
-        /* V17 스페슘 플래시 등장 애니메이션 */
         @keyframes specium_spawn {
           0% { opacity: 0; transform: scale(0.85) translateY(30px); filter: brightness(3) blur(20px); }
           40% { opacity: 0.8; transform: scale(1.05) translateY(-5px); filter: brightness(1.5) blur(10px); }
